@@ -32,6 +32,7 @@ while true; do
 done
 EthAccountLockCodeHash=$(jq -r '.eth_account_lock.script_type_hash' $LOCKSCRIPTS)
 PolyjuiceValidatorCodeHash=$(jq -r '.polyjuice_validator.script_type_hash' $LOCKSCRIPTS)
+L2SudtValidatorScriptTypeHash=$(jq -r '.l2_sudt_validator.script_type_hash' $LOCKSCRIPTS)
 
 # read rollup type hash from config.toml file
 CONFIGTOML=${PROJECT_DIR}/workspace/config.toml
@@ -61,6 +62,7 @@ CREATOR_ACCOUNT_ID=3
 ADDRESS_STORE_PATH_ABSOLUTE=/usr/local/godwoken-web3/address-mapping
 DEFAULT_FROM_ADDRESS=0x6daf63d8411d6e23552658e3cfb48416a6a2ca78
 POLYJUICE_VALIDATOR_TYPE_HASH=$PolyjuiceValidatorCodeHash
+L2_SUDT_VALIDATOR_SCRIPT_TYPE_HASH=$L2SudtValidatorScriptTypeHash
 EOF
 
 # wait for godwoken rpc server to start
